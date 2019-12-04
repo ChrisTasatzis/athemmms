@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Login</title>
+
+  </head>
+  <body>
+<style>
+
+  body {
+    background-image: url("/images/background.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+  }
+	.navbar {
+    background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+  }
+  .navbar:not(.top-nav-collapse) {
+    background: transparent;
+  }
+  .navbar .navbar-brand img {
+    height: 40px;
+    margin: 10px;
+  }
+  .navbar.navbar-1 .navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger1.svg?color=6a1b9a');
+  }
+  .hm-gradient {
+    background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+  }
+  .btn.btn-margin {
+    margin-left: 6rem;
+    margin-top: 3rem;
+  }
+  .btn.btn-lily {
+    background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
+    color: #fff;
+  }
+
+</style>
+
+<!-- Main navigation -->
+<header>
+  <!--Navbar -->
+  <nav class="navbar navbar-1 navbar-expand-lg scrolling-navbar navbar-dark z-depth-0 fixed-top">
+    <a class="navbar-brand" href="/">
+      <img src="/images/logo3.png" alt="atheMMMs">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+        aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+    </span>
+  </button>
+
+  </nav>
+  <!--/.Navbar -->
+
+  <!-- Intro -->
+  <section class="view">
+        <!--Section: Content-->
+        <section class="p-5 my-md-5 text-center "
+          style="background-size: cover; background-position: center center;">
+
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <!-- Material form login -->
+                <div class="card mt-3 mb-5">
+
+                  <!--Card content-->
+                  <div class="card-body">
+                   <!--Header-->
+                  <div class="text-center">
+                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>REGIS</strong> <a
+                        class="font-weight-bold" style="color:gold"><strong>TER</strong></a></h3>
+                  </div>
+                    <!-- Form -->
+                    <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
+                      
+                        <form id="register-form" class="text-center" style="color: #757575;" action="/register" method="POST">
+                            <!--First Name-->
+                            <input type="string" id="firstName" name="firstName" class="form-control mb-4" placeholder="First Name" required>
+                            <!--Last Name-->
+                            <input type="string" id="lastName" name="lastName" class="form-control mb-4" placeholder="Last Name" required>
+                            <!-- Email -->
+                            <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
+                            
+                            <!-- Password -->
+                            <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
+                        
+                            <!-- Re-Password-->
+                            <input type="password" id="re-password" name="re-password" class="form-control mb-4" placeholder="Password Again" required>
+                        
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Register</button>
+                              <p><a href="/register" > Already a Member ? Sign In Now...</a></p>
+                            </div>
+                          </form>
+                          <!-- Form -->
+                     
+                  </div>
+
+                </div>
+                <!-- Material form login -->
+              </div>
+            </div>
+
+        </section>
+        <!--Section: Content-->
+
+
+  </section>
+  <!-- Intro -->
+
+</header>
+
+<!-- Main navigation -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
