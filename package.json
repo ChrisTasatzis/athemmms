@@ -13,7 +13,12 @@
     "ejs": "^2.7.4",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
-    "mongoose": "^5.7.12"
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.7.12",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
