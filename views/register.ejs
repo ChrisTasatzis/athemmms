@@ -44,24 +44,6 @@
     background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
     color: #fff;
   }
- 
-  label {
-			cursor:pointer;
-	}
-	#form-switch {
-			display:none;
-	}
-  #register-form {
-			display:none;
-	}
-	#form-switch:checked~#register-form {
-			display:block; padding :0px 10px; 
-	}
-	#form-switch:checked~#login-form {
-			display:none; 
-			padding :0px 10px;
-	}
-
 
 </style>
 
@@ -78,23 +60,13 @@
     </span>
   </button>
 
-    <div class="collapse navbar-collapse navbar-light navbar-1 white" id="navbarSupportedContent-4">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown dropdown-primary active">
-          <a href="/login"
-             class="nav-link btn btn-dark btn-rounded waves-effect mr-2">Login <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
-
-    </div>
   </nav>
   <!--/.Navbar -->
 
   <!-- Intro -->
   <section class="view">
         <!--Section: Content-->
-        <section class="p-5 my-md-5 text-center"
+        <section class="p-5 my-md-5 text-center "
           style="background-size: cover; background-position: center center;">
 
             <div class="row">
@@ -104,34 +76,39 @@
 
                   <!--Card content-->
                   <div class="card-body">
-                    <!--Header-->
-                    <div class="text-center">
-                        <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>LOG</strong> <a
-                          class="font-weight-bold" style="color:gold"><strong>IN</strong></a></h3>
-                    </div>                    
+                   <!--Header-->
+                  <div class="text-center">
+                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>REGIS</strong> <a
+                        class="font-weight-bold" style="color:gold"><strong>TER</strong></a></h3>
+                  </div>
                     <!-- Form -->
-                    <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
+                      
+                        <form id="register-form" class="text-center" style="color: #757575;" action="/register" method="POST">
+                            <!--First Name-->
+                            <input type="string" id="firstName" name="firstName" class="form-control mb-4" placeholder="First Name" required>
+                            <!--Last Name-->
+                            <input type="string" id="lastName" name="lastName" class="form-control mb-4" placeholder="Last Name" required>
+                            <!-- Email -->
+                            <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
+                            
+                            <!-- Password -->
+                            <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
+                        
+                            <!-- Re-Password-->
+                            <input type="password" id="repassword" name="repassword" class="form-control mb-4" placeholder="Password Again" required>
+                        
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Register</button>
+                              <p><a href="/login" > Already a Member ? Sign In Now...</a></p>
+                            </div>
+                          </form>
+                          <!-- Form -->
 
-                      <!-- Email -->
-                      <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
-
-                      <!-- Password -->
-                      <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
-                      <small id="passwordHelpBlock" class="form-text text-right blue-text">
-                        <a href="">Recover Password</a>
-                      </small>
-
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-outline-info btn-rounded waves-effect ">Login</button>
-                        <p><a href="/register" > Not a Member ? Sign Up Now...</a></p>
-                      </div>
-
-                    </form> <!--login-->
-                    
-                    
-                    <% if (messages.error) { %>
-                      <div class="alert alert-danger" role="alert">  <%= messages.error %> </div>
-                    <% } %>
+                          <% if(locals.message){ %>
+                            <div class="alert alert-danger" role="alert"> <%=message.signupMessage%> </div>
+                          <% } %>
+                     
+                  </div>
 
                 </div>
                 <!-- Material form login -->
@@ -155,3 +132,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
