@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>OASA</title>
+    <title>Login</title>
 
   </head>
   <body>
@@ -36,16 +36,6 @@
   .hm-gradient {
     background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
   }
-  .heading {
-    margin: 0 6rem;
-    font-size: 3.8rem;
-    font-weight: 700;
-    color: #5d4267;
-  }
-  .subheading {
-    margin: 2.5rem 6rem;
-    color: #bcb2c0;
-  }
   .btn.btn-margin {
     margin-left: 6rem;
     margin-top: 3rem;
@@ -54,17 +44,7 @@
     background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
     color: #fff;
   }
-  .title {
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-    color: #5d4267;
-  }
-  .subtitle {
-    color: #bcb2c0;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 6rem;
-  }
+ 
   label {
 			cursor:pointer;
 	}
@@ -102,7 +82,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown dropdown-primary active">
           <a href="/login"
-             class="nav-link btn btn-info btn-rounded waves-effect mr-2">Login <span class="sr-only">(current)</span>
+             class="nav-link btn btn-dark btn-rounded waves-effect mr-2">Login <span class="sr-only">(current)</span>
           </a>
         </li>
       </ul>
@@ -120,7 +100,7 @@
             <div class="row">
               <div class="col-md-6 mx-auto">
                 <!-- Material form login -->
-                <div class="card">
+                <div class="card mt-3 mb-5">
 
                   <!--Card content-->
                   <div class="card-body">
@@ -128,7 +108,7 @@
                     <!-- Form -->
                     <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
 
-                      <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
+                      <h3 class="card-header dark-color font-weight-bold my-4 pb-2 text-center white-text">Log In</h3>
 
                       <!-- Email -->
                       <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
@@ -140,7 +120,7 @@
                       </small>
 
                       <div class="text-center">
-                        <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Login</button>
+                        <button type="submit" class="btn btn-outline-info btn-rounded waves-effect ">Login</button>
                         <label for='form-switch'><span>Register</span></label>
                       </div>
 
