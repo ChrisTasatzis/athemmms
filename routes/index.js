@@ -17,14 +17,14 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register')
 }) 
 
-router.get('/home', checkAuthenticated, async (req, res) => {
-  user = await Users.findById(req.session.passport.user)
-  if(user.timedTicket>=30)
-    var prog=100
-  else 
-    var prog = Math.round(user.timedTicket/0.3)
-  res.render('home', {user: user, prog: prog})
-}) 
+// router.get('/home', checkAuthenticated, async (req, res) => {
+//   user = await Users.findById(req.session.passport.user)
+//   if(user.timedTicket>=30)
+//     var prog=100
+//   else 
+//     var prog = Math.round(user.timedTicket/0.3)
+//   res.render('home', {user: user, prog: prog})
+// }) 
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/home',
