@@ -1,19 +1,11 @@
 const express = require('express')
-const app = express()  
-const passport = require('passport')
+const app = express()
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const passport = require('passport')
 
-const Users = require('./models/user')
 const indexRouter = require('./routes/index')
-
-const initializePassport = require('./passport-config')
-initializePassport(
-  passport,
-  email => Users.findOne({username: email}),
-  id => users.findOne({_id: id})
-)
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -28,6 +20,13 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
+
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport,
+  async email => await Users.findOne({email: email}),
+  async id => await Users.findOne({_id: id})
+)
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://user:nJNwnqOmJoxKlQMV@cluster0-2srjd.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
