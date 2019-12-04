@@ -43,6 +43,11 @@ router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   failureFlash: true
 }))
 
+router.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/login')
+})
+
 router.post('/register', checkNotAuthenticated, async (req, res) => {
   email = req.body.email
   password = await bcrypt.hash(req.body.password, 10)

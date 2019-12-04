@@ -82,9 +82,10 @@
                 <div class="collapse navbar-collapse navbar-light navbar-1 white" id="navbarSupportedContent-4">
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown dropdown-primary active">
-                        <a href="/logout"
-                        class="nav-link btn btn-dark btn-rounded waves-effect mr-2">Logout <span class="sr-only">(current)</span>
-                        </a>
+                        <form action="/logout?_method=DELETE" method="POST">
+                          <button type="submit" 
+                            class="nav-link btn btn-dark btn-rounded waves-effect mr-2" >Logout <span class="sr-only">(current)</span>
+                          </button>
                     </li>
                     </ul>
             
