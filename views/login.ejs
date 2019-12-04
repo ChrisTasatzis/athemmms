@@ -76,15 +76,14 @@
 
                   <!--Card content-->
                   <div class="card-body">
-                   <!--Header-->
-                  <div class="text-center">
-                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>LOG</strong> <a
-                        class="font-weight-bold" style="color:gold"><strong> IN</strong></a></h3>
-                  </div>
+                    <!--Header-->
+                    <div class="text-center">
+                        <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>LOG</strong> <a
+                          class="font-weight-bold" style="color:gold"><strong>IN</strong></a></h3>
+                    </div>                    
                     <!-- Form -->
                     <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
-                      
-                      
+
                       <!-- Email -->
                       <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
 
@@ -96,12 +95,15 @@
 
                       <div class="text-center">
                         <button type="submit" class="btn btn-outline-info btn-rounded waves-effect ">Login</button>
-                        <p><a href="/register" > Not a member yet?..Register</a></p>
+                        <p><a href="/register" > Not a Member ? Sign Up Now...</a></p>
                       </div>
 
                     </form> <!--login-->
                     
-                  </div>
+                    
+                    <% if (messages.error) { %>
+                      <div class="alert alert-danger" role="alert">  <%= messages.error %> </div>
+                    <% } %>
 
                 </div>
                 <!-- Material form login -->

@@ -78,11 +78,10 @@
                   <div class="card-body">
                    <!--Header-->
                   <div class="text-center">
-                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>REGIS</strong> <a
+                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>REGIS</strong><a
                         class="font-weight-bold" style="color:gold"><strong>TER</strong></a></h3>
                   </div>
                     <!-- Form -->
-                    <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
                       
                         <form id="register-form" class="text-center" style="color: #757575;" action="/register" method="POST">
                             <!--First Name-->
@@ -96,14 +95,18 @@
                             <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
                         
                             <!-- Re-Password-->
-                            <input type="password" id="re-password" name="re-password" class="form-control mb-4" placeholder="Password Again" required>
+                            <input type="password" id="repassword" name="repassword" class="form-control mb-4" placeholder="Password Again" required>
                         
                             <div class="text-center">
                               <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Register</button>
-                              <p><a href="/register" > Already a Member ? Sign In Now...</a></p>
+                              <p><a href="/login" > Already a Member ? Sign In Now...</a></p>
                             </div>
                           </form>
                           <!-- Form -->
+
+                          <% if(locals.message){ %>
+                            <div class="alert alert-danger" role="alert"> <%=message.signupMessage%> </div>
+                          <% } %>
                      
                   </div>
 

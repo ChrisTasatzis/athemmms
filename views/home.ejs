@@ -7,7 +7,6 @@
         
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
         <title>atheMMMs</title>
 
     </head>
@@ -16,8 +15,12 @@
 
                     body {
                       background: rgb(177, 210, 211);
-                      
+                      background: -webkit-linear-gradient(to right, #fff, #a2d3fa);
+                      background: linear-gradient(to right, #a2d3fa, #fff);
+                      background-size: 100%;
                     }
+                      
+                    
                       .navbar {
                       background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
                     }
@@ -52,18 +55,90 @@
                       background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
                       color: #fff;
                     }
-                    .title {
-                      margin-top: 6rem;
-                      margin-bottom: 2rem;
-                      color: #5d4267;
+
+                    .progress {
+                    width: 150px;
+                    height: 150px;
+                    background: none;
+                    position: relative;
                     }
-                    .subtitle {
-                      color: #bcb2c0;
-                      margin-left: 20%;
-                      margin-right: 20%;
-                      margin-bottom: 6rem;
+
+                    .progress::after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 6px solid #eee;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     }
-                  
+
+                    .progress>span {
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    z-index: 1;
+                    }
+
+                    .progress .progress-left {
+                    left: 0;
+                    }
+
+                    .progress .progress-bar {
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border-width: 6px;
+                    border-style: solid;
+                    position: absolute;
+                    top: 0;
+                    }
+
+                    .progress .progress-left .progress-bar {
+                    left: 100%;
+                    border-top-right-radius: 80px;
+                    border-bottom-right-radius: 80px;
+                    border-left: 0;
+                    -webkit-transform-origin: center left;
+                    transform-origin: center left;
+                    }
+
+                    .progress .progress-right {
+                    right: 0;
+                    }
+
+                    .progress .progress-right .progress-bar {
+                    left: -100%;
+                    border-top-left-radius: 80px;
+                    border-bottom-left-radius: 80px;
+                    border-right: 0;
+                    -webkit-transform-origin: center right;
+                    transform-origin: center right;
+                    }
+
+                    .progress .progress-value {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    }
+
+                    .rounded-lg {
+                    border-radius: 1rem;
+                    }
+
+                    .text-gray {
+                    color: #aaa;
+                    }
+
+                    div.h4 {
+                    line-height: 1rem;
+                    }
+                    
+                    
+       
         </style>
                   
         <!-- Main navigation -->
@@ -83,107 +158,103 @@
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown dropdown-primary active">
                         <form action="/logout?_method=DELETE" method="POST">
-                          <button type="submit" 
-                            class="nav-link btn btn-dark btn-rounded waves-effect mr-2" >Logout <span class="sr-only">(current)</span>
-                          </button>
+                            <button type="submit" 
+                                class="nav-link btn btn-dark btn-rounded waves-effect mr-2" >Logout <span class="sr-only">(current)</span>
+                            </button>
                         </form>
                     </li>
                     </ul>
                 </div>
             </nav>
 
-            <section style="margin-top:50px">
-                    <div class="container-fluid py-5">
-                      <hr class="dashed">
-                      <div class="row text-center align-items-end">
+            <section>
+                    <div class="container-fluid py-5" style="margin-top:50px">
+                      <div class="row text-center align-items-end ">
 
-                        <!-- Personal Info-->
+                        <!-- Personal info-->
                         <div class="col-lg-3 mb-5 mb-lg-0">
                           <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Basic</h1>
-                            <h2 class="h1 font-weight-bold">$199<span class="text-small font-weight-normal ml-2">/ month</span></h2>
-                  
-                            <div class="custom-separator my-4 mx-auto bg-primary"></div>
-                  
-                            <ul class="list-unstyled my-5 text-small text-left">
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                              <li class="mb-3 text-muted">
-                                <i class="fa fa-times mr-2"></i>
-                                <del>Nam libero tempore</del>
-                              </li>
-                              <li class="mb-3 text-muted">
-                                <i class="fa fa-times mr-2"></i>
-                                <del>Sed ut perspiciatis</del>
-                              </li>
-                              <li class="mb-3 text-muted">
-                                <i class="fa fa-times mr-2"></i>
-                                <del>Sed ut perspiciatis</del>
-                              </li>
-                            </ul>
-                            <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
+                            <div class="text-center">
+                                <h3 class="mb-5 mt-4 font-weight-bold" style="color:rgb(71, 71, 71)"><strong>Personal</strong> <a
+                                  class="font-weight-bold" style="color:gold"><strong>Info</strong></a></h3>
+                            
+                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+                                    <ul class="list-unstyled my-5 text-small text-left">
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> First Name:</li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Last Name:</li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Email:</li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Discounted:</li>      
+                                    </ul>
+                            </div>
                           </div>
                         </div>
                         <!-- END -->
                   
                   
-                        <!-- Tickets-->
+                        <!--Tickets-->
                         <div class="col-lg-5 mb-5 mb-lg-0">
                           <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Pro</h1>
-                            <h2 class="h1 font-weight-bold">$399<span class="text-small font-weight-normal ml-2">/ month</span></h2>
-                  
+                                <div class="text-center">
+                                <h3 class="mb-5 mt-4 font-weight-bold" style="color:gold"><strong>Your</strong> <a
+                                    class="font-weight-bold" style="color:rgb(71, 71, 71)"><strong>Tickets</strong></a></h3>
+                                </div>
                             <div class="custom-separator my-4 mx-auto bg-primary"></div>
-                  
-                            <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                              <li class="mb-3 text-muted">
-                                <i class="fa fa-times mr-2"></i>
-                                <del>Sed ut perspiciatis</del>
-                              </li>
-                            </ul>
-                            <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
+                                <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 mb-4">
+                                                    <div class="bg-white rounded-lg p-5 shadow">
+                                                        <h2 class="h6 font-weight-bold text-center mb-4">Timed Ticket</h2>
+
+                                                        <!-- Progress bar 1 -->
+                                                        <div class="progress mx-auto" data-value='80'>
+                                                        <span class="progress-left">
+                                                                        <span class="progress-bar border-warning"></span>
+                                                        </span>
+                                                        <span class="progress-right">
+                                                                        <span class="progress-bar border-warning"></span>
+                                                        </span>
+                                                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                                            <div class="h2 font-weight-bold">80<small> days</small></div>
+                                                        </div>
+                                                        </div>
+                                                        <!-- END -->
+                                                    </div>
+                                                </div>
+
+                                            <div class="col-xl-6 col-lg-6 mb-4">
+                                                <div class="bg-white rounded-lg p-5 shadow h-100">
+                                                        <h2 class="h6 font-weight-bold text-center mb-4">Number of Tickets</h2>
+                                                        <h1 class="display-1 font-weight-bold text-center mb-4">5</h1>   
+                                                </div>
+                                            </div>
+                             </div></div>
+
+                            <a href="#" class="btn btn-dark btn-block p-2 shadow rounded-pill">Buy Tickets</a>
                           </div>
                         </div>
                         <!-- END -->
                   
                   
-                        <!-- Money-->
+                        <!--Money-->
                         <div class="col-lg-4">
-                          <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Enterprise</h1>
-                            <h2 class="h1 font-weight-bold">$899<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+                          <div class="bg-white p-5 rounded-lg shadow ">
+                                <div class="text-center">
+                                        <h3 class="mb-5 mt-4 font-weight-bold" style="color:gold"><strong>E</strong><a
+                                            class="font-weight-bold" style="color:rgb(71, 71, 71)"><strong>-wallet</strong></a><a
+                                            class="font-weight-bold" style="color:gold"><strong> money</strong></a></h3>
+                                        </div>
+                            
                   
                             <div class="custom-separator my-4 mx-auto bg-primary"></div>
-                  
-                            <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                              <li class="mb-3">
-                                <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
+                                    <div class="bg-white rounded-lg p-5 shadow mb-4">
+                                            <h2 class="h6 font-weight-bold text-center mb-4">Amount of money</h2>
+                                            <h1 class="display-3 font-weight-bold text-center mb-4">2000 €</h1>   
+                                    </div> 
+                            <a href="#" class="btn btn-dark btn-block p-2 shadow rounded-pill">Add money to your e-wallet</a>
                           </div>
                         </div>
                         <!-- END -->
@@ -192,7 +263,6 @@
                     </div>
                   </section>
         </header>
-
         <!--/.Navbar -->
         <!-- Main navigation -->
         <!-- Optional JavaScript -->
@@ -200,5 +270,31 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">$(function() {
+
+            $(".progress").each(function() {
+          
+              var value = $(this).attr('data-value');
+              var left = $(this).find('.progress-left .progress-bar');
+              var right = $(this).find('.progress-right .progress-bar');
+          
+              if (value > 0) {
+                if (value <= 50) {
+                  right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                  right.css('transform', 'rotate(180deg)')
+                  left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+              }
+          
+            })
+          
+            function percentageToDegrees(percentage) {
+          
+              return percentage / 100 * 360
+          
+            }
+          
+          });</script>
     </body>
 </html>
