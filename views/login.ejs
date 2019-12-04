@@ -65,6 +65,23 @@
     margin-right: 20%;
     margin-bottom: 6rem;
   }
+  label {
+			cursor:pointer;
+	}
+	#form-switch {
+			display:none;
+	}
+  #register-form {
+			display:none;
+	}
+	#form-switch:checked~#register-form {
+			display:block; padding :0px 10px; 
+	}
+	#form-switch:checked~#login-form {
+			display:none; 
+			padding :0px 10px;
+	}
+
 
 </style>
 
@@ -107,25 +124,47 @@
 
                   <!--Card content-->
                   <div class="card-body">
-
+                    <input type='checkbox' id='form-switch'>
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="/login" method="POST">
+                    <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
 
                       <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
 
-                      <!-- Name -->
-                      <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email">
-
                       <!-- Email -->
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                      <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
+
+                      <!-- Password -->
+                      <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
                       <small id="passwordHelpBlock" class="form-text text-right blue-text">
                         <a href="">Recover Password</a>
                       </small>
 
                       <div class="text-center">
                         <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Login</button>
+                        <label for='form-switch'><span>Register</span></label>
                       </div>
 
+                    </form> <!--login-->
+                    <form id="register-form" class="text-center" style="color: #757575;" action="/login" method="POST">
+                      <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Register</h3>
+
+                      <!--First Name-->
+                      <input type="firstName" id="firstName" name="firstName" class="form-control mb-4" placeholder="First Name" required>
+                      <!--Last Name-->
+                      <input type="lasttName" id="lastName" name="lastName" class="form-control mb-4" placeholder="Last Name" required>
+                      <!-- Email -->
+                      <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
+
+                      <!-- Password -->
+                      <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
+
+                      <!-- Re-Password-->
+                      <input type="password" id="re-password" name="re-password" class="form-control mb-4" placeholder="Password Again" required>
+
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Register</button>
+                        <label for='form-switch'>Already a Member ? Sign In Now...</label>
+                      </div>
                     </form>
                     <!-- Form -->
 

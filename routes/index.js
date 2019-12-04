@@ -43,7 +43,7 @@ router.post('/login', (req, res) => {
   console.log(email)
   console.log(password)
   
-  newUser = Users.findOne({email:"chris@c"})
+  newUser = Users.findOne({email: email})
 
   console.log(newUser.email)
 })
