@@ -181,13 +181,13 @@
                                     <div class="custom-separator my-4 mx-auto bg-primary"></div>
                                     <ul class="list-unstyled my-5 text-small text-left">
                                         <li class="mb-3">
-                                            <i class="fa fa-check mr-2 text-primary"></i> First Name:</li>
+                                            <i class="fa fa-check mr-2 text-primary"></i> First Name: <%= user.firstName %></li>
                                         <li class="mb-3">
-                                            <i class="fa fa-check mr-2 text-primary"></i> Last Name:</li>
+                                            <i class="fa fa-check mr-2 text-primary"></i> Last Name: <%= user.lastName %></li>
                                         <li class="mb-3">
-                                            <i class="fa fa-check mr-2 text-primary"></i> Email:</li>
+                                            <i class="fa fa-check mr-2 text-primary"></i> Email: <%= user.email %></li>
                                         <li class="mb-3">
-                                            <i class="fa fa-check mr-2 text-primary"></i> Discounted:</li>      
+                                            <i class="fa fa-check mr-2 text-primary"></i> Discounted: <%= user.discounted %></li>      
                                     </ul>
                             </div>
                           </div>
@@ -209,8 +209,10 @@
                                                     <div class="bg-white rounded-lg p-5 shadow">
                                                         <h2 class="h6 font-weight-bold text-center mb-4">Timed Ticket</h2>
 
+                                                        
+
                                                         <!-- Progress bar 1 -->
-                                                        <div class="progress mx-auto" data-value='80'>
+                                                        <div class="progress mx-auto" data-value='<%= prog %>'>
                                                         <span class="progress-left">
                                                                         <span class="progress-bar border-warning"></span>
                                                         </span>
@@ -218,7 +220,7 @@
                                                                         <span class="progress-bar border-warning"></span>
                                                         </span>
                                                         <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                                            <div class="h2 font-weight-bold">80<small> days</small></div>
+                                                            <div class="h2 font-weight-bold"> <%= user.timedTicket %> <small> days</small></div>
                                                         </div>
                                                         </div>
                                                         <!-- END -->
@@ -228,7 +230,7 @@
                                             <div class="col-xl-6 col-lg-6 mb-4">
                                                 <div class="bg-white rounded-lg p-5 shadow h-100">
                                                         <h2 class="h6 font-weight-bold text-center mb-4">Number of Tickets</h2>
-                                                        <h1 class="display-1 font-weight-bold text-center mb-4">5</h1>   
+                                                        <h1 class="display-1 font-weight-bold text-center mb-4"><%=user.singleTicket%></h1>   
                                                 </div>
                                             </div>
                              </div></div>
@@ -252,7 +254,7 @@
                             <div class="custom-separator my-4 mx-auto bg-primary"></div>
                                     <div class="bg-white rounded-lg p-5 shadow mb-4">
                                             <h2 class="h6 font-weight-bold text-center mb-4">Amount of money</h2>
-                                            <h1 class="display-3 font-weight-bold text-center mb-4">2000 €</h1>   
+                                            <h1 class="display-3 font-weight-bold text-center mb-4"><%= user.money %> €</h1>   
                                     </div> 
                             <a href="#" class="btn btn-dark btn-block p-2 shadow rounded-pill">Add money to your e-wallet</a>
                           </div>

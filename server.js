@@ -5,6 +5,8 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const passport = require('passport')
 const indexRouter = require('./routes/index')
+const Users = require('./models/user')
+
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -24,7 +26,7 @@ const initializePassport = require('./passport-config')
 initializePassport(
   passport,
   async email => await Users.findOne({email: email}),
-  async id => await Users.findOne({_id: id})
+  async id => await Users.find({_id: id})
 )
 
 const mongoose = require('mongoose')
@@ -37,4 +39,4 @@ app.use('/', indexRouter)
 app.use('/login', indexRouter)
 
 
-app.listen(process.env.PORT || 3000)
+app.listen(3000)
