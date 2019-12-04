@@ -78,29 +78,33 @@
                   <div class="card-body">
                    <!--Header-->
                   <div class="text-center">
-                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>LOG</strong> <a
-                        class="font-weight-bold" style="color:gold"><strong> IN</strong></a></h3>
+                      <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>REGIS</strong> <a
+                        class="font-weight-bold" style="color:gold"><strong>TER</strong></a></h3>
                   </div>
                     <!-- Form -->
                     <form id="login-form" class="text-center" style="color: #757575;" action="/login" method="POST">
                       
-                      
-                      <!-- Email -->
-                      <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
-
-                      <!-- Password -->
-                      <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
-                      <small id="passwordHelpBlock" class="form-text text-right blue-text">
-                        <a href="">Recover Password</a>
-                      </small>
-
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-outline-info btn-rounded waves-effect ">Login</button>
-                        <p><a href="/register" > Not a member yet?..Register</a></p>
-                      </div>
-
-                    </form> <!--login-->
-                    
+                        <form id="register-form" class="text-center" style="color: #757575;" action="/register" method="POST">
+                            <!--First Name-->
+                            <input type="string" id="firstName" name="firstName" class="form-control mb-4" placeholder="First Name" required>
+                            <!--Last Name-->
+                            <input type="string" id="lastName" name="lastName" class="form-control mb-4" placeholder="Last Name" required>
+                            <!-- Email -->
+                            <input type="email" id="email" name="email" class="form-control mb-4" placeholder="Email" required>
+                            
+                            <!-- Password -->
+                            <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password" required>
+                        
+                            <!-- Re-Password-->
+                            <input type="password" id="re-password" name="re-password" class="form-control mb-4" placeholder="Password Again" required>
+                        
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-outline-info btn-rounded waves-effect">Register</button>
+                              <p><a href="/register" > Already a Member ? Sign In Now...</a></p>
+                            </div>
+                          </form>
+                          <!-- Form -->
+                     
                   </div>
 
                 </div>
@@ -125,3 +129,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
