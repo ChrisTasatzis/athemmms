@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        
+        <title>Billing</title>
+
+    </head>
+    <body>
+        <style>
+
+                    body {
+                      background: rgb(177, 210, 211);
+                      background: -webkit-linear-gradient(to right, #fff, #a2d3fa);
+                      background: linear-gradient(to right, #a2d3fa, #fff);
+                      background-size: 100%;
+                    }
+                      
+                    
+                      .navbar {
+                      background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+                    }
+                    .navbar:not(.top-nav-collapse) {
+                      background: transparent;
+                    }
+                    .navbar .navbar-brand img {
+                      height: 40px;
+                      margin: 10px;
+                    }
+                    .navbar.navbar-1 .navbar-toggler-icon {
+                      background-image: url('https://mdbootstrap.com/img/svg/hamburger1.svg?color=6a1b9a');
+                    }
+                    .hm-gradient {
+                      background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+                    }
+                    .heading {
+                      margin: 0 6rem;
+                      font-size: 3.8rem;
+                      font-weight: 700;
+                      color: #5d4267;
+                    }
+                    .subheading {
+                      margin: 2.5rem 6rem;
+                      color: #bcb2c0;
+                    }
+                    .btn.btn-margin {
+                      margin-left: 6rem;
+                      margin-top: 3rem;
+                    }
+                    .btn.btn-lily {
+                      background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
+                      color: #fff;
+                    }
+                    
+            .rounded-lg {
+                    border-radius: 1rem;
+                    }
+
+                    .nav-pills .nav-link {
+                    color: #555;
+                    }
+
+                    .nav-pills .nav-link.active {
+                    color: rgb(255, 255, 255);
+                    }
+                    
+        </style>
+                  
+        <!-- Main navigation -->
+        <header>
+            <!--Navbar -->
+            <nav class="navbar navbar-1 navbar-expand-lg scrolling-navbar navbar-dark z-depth-0 fixed-top">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logo3.png" alt="atheMMMs">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                </span>
+                </button>
+            
+                <div class="collapse navbar-collapse navbar-light navbar-1 white" id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown dropdown-primary active">
+                        <form action="/logout?_method=DELETE" method="POST">
+                            <button type="submit" 
+                                class="nav-link btn btn-dark btn-rounded waves-effect mr-2" >Logout <span class="sr-only">(current)</span>
+                            </button>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container py-5">
+
+                    <!-- For demo purpose -->
+                    <div class="row mb-4">
+                      <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4">Billing Method</h1>
+                      </div>
+                    </div>
+                    <!-- End -->
+                  
+                  
+                    <div class="row">
+                      <div class="col-lg-7 mx-auto">
+                        <div class="bg-white rounded-lg shadow-sm p-5">
+                          <!-- Credit card form tabs -->
+                          <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+                            <li class="nav-item ">
+                              <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill ">
+                                                  <i class="fa fa-credit-card"></i>
+                                                  Credit Card
+                                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
+                                                  <i class="fab fa-cc-paypal"></i>
+                                                  Paypal
+                                              </a>
+                            </li>
+                          </ul>
+                          <!-- End -->
+                  
+                  
+                          <!-- Credit card form content -->
+                          <div class="tab-content">
+                  
+                            <!-- credit card info-->
+                            <div id="nav-tab-card" class="tab-pane fade show active">
+                              
+                              <form role="form">
+                                <div class="form-group">
+                                  <label for="username">Full name (on the card)</label>
+                                  <input type="text" name="username" placeholder="Lana F Banana" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <label for="cardNumber">Card number</label>
+                                  <div class="input-group">
+                                    <input type="text" name="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" class="form-control" required>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text ">
+                                                                  <i class="fab fa-cc-visa mx-1"></i>
+                                                                  <i class="fab fa-cc-amex mx-1"></i>
+                                                                  <i class="fab fa-cc-mastercard mx-1"></i>
+                                                              </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-8">
+                                    <div class="form-group">
+                                      <label><span class="hidden-xs">Expiration</span></label>
+                                      <div class="input-group">
+                                        <input type="number" placeholder="MM" name="" class="form-control" required>
+                                        <input type="number" placeholder="YY" name="" class="form-control" required>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <div class="form-group mb-4">
+                                      <label data-toggle="tooltip" title="Three-digits code on the back of your card">CVV
+                                                                  <i class="fa fa-question-circle"></i>
+                                                              </label>
+                                      <input type="text" required class="form-control">
+                                    </div>
+                                  </div>
+                  
+                  
+                  
+                                </div>
+                                <button type="button" class="subscribe btn btn-dark btn-block rounded-pill shadow-sm"> Confirm  </button>
+                              </form>
+                            </div>
+                            <!-- End -->
+                  
+                            <!-- Paypal info -->
+                            <div id="nav-tab-paypal" class="tab-pane fade">
+                              <p>Paypal is easiest way to pay online</p>
+                              <p>
+                                <button type="button" class="btn btn-dark rounded-pill"><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button>
+                              </p>
+                              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                              </p>
+                            </div>
+                            <!-- End -->
+                  
+                          </div>
+                          <!-- End -->
+                  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+        </header>
+        <!--/.Navbar -->
+        <!-- Main navigation -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       <script>$(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+          })</script>
+    </body>
+</html>
