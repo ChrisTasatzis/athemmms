@@ -21,6 +21,14 @@ router.get('/home', checkAuthenticated, (req, res) => {
   res.render('home')
 }) 
 
+router.get('/ticket', checkAuthenticated, (req, res) => {
+  res.render('ticket')
+}) 
+
+router.get('/billing', checkAuthenticated, (req, res) => {
+  res.render('billing')
+}) 
+
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/home',
   failureRedirect: '/login',
