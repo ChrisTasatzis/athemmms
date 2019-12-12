@@ -235,7 +235,8 @@ body {
         {
           var discounted = '<%- JSON.stringify(discounted) %>';
           var money = '<%- JSON.stringify(money) %>';
-          if(discounted) 
+
+          if(discounted=="true") 
             newVal = (months*15 + tickets*0.6).toFixed(2);
           else
             newVal = (months*30 + tickets*1.4).toFixed(2); 
