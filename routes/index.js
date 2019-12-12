@@ -26,13 +26,42 @@ router.get('/home', checkAuthenticated, async (req, res) => {
   res.render('home', {user: user, prog: prog})
 }) 
 
-router.get('/ticket', checkAuthenticated, (req, res) => {
-  res.render('ticket')
+router.get('/ticket', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  res.render('ticket', {money: user.money, discounted: user.discounted})
+}) 
+
+router.post('/ticket', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  tickets = req.body.tickets
+  months = req.body.months
+  money = req.body.moneyInp
+
+  newTickets = user.singleTicket + Number(tickets)
+  newMonths = user.timedTicket + Number(months)*30
+  newBal = req.body.newBalInp
+
+  if(newBal<0) {
+    req.flash('moneyWarning', "Not enought money to complete the purchase");
+    res.locals.message = req.flash();
+    res.render('ticket', {money: user.money, discounted: user.discounted})
+  } else { 
+    newUser = await Users.updateOne({_id: req.session.passport.user}, {singleTicket: newTickets, timedTicket: newMonths, money: newBal}, function (err) {
+      if (err) 
+        return console.error(err) 
+
+      res.redirect('home')
+    })
+  }
+
+
+  
 }) 
 
 router.get('/billing', checkAuthenticated, (req, res) => {
   res.render('billing')
-}) 
+})
+
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/home',
