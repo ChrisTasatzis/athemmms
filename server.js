@@ -44,7 +44,6 @@ rule.minute = 0;
 rule.second = 0;
 
 var job = schedule.scheduleJob(rule, function(){
-  console.log('kek')
   Users.updateMany({timedTicket: { $gt: 0} }, { $inc: {timedTicket: -1} }, function (err) {
     if (err) 
       return console.error(err) })
