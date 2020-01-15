@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        
+        <title>Money</title>
+
+    </head>
+    <body>
+        <style>
+
+body {
+    background-image: url("/images/background2.jpg");
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    background-attachment: fixed;
+  }
+                      
+                      .navbar {
+                      background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+                    }
+                    .navbar:not(.top-nav-collapse) {
+                      background: transparent;
+                    }
+                    .navbar .navbar-brand img {
+                      height: 40px;
+                      margin: 10px;
+                    }
+                    .navbar.navbar-1 .navbar-toggler-icon {
+                      background-image: url('https://mdbootstrap.com/img/svg/hamburger1.svg?color=6a1b9a');
+                    }
+                    .rounded-lg {
+                        border-radius: 1rem !important;
+                        }
+
+                        .text-small {
+                        font-size: 0.9rem !important;
+                        }
+
+                        .custom-separator {
+                        width: 5rem;
+                        height: 6px;
+                        border-radius: 1rem;
+                        }
+
+                        .text-uppercase {
+                        letter-spacing: 0.2em;
+                        }
+        </style>
+                  
+        <!-- Main navigation -->
+        <header>
+            <!--Navbar -->
+            <nav class="navbar navbar-1 navbar-expand-lg scrolling-navbar navbar-dark z-depth-0 fixed-top">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logo3.png" alt="atheMMMs">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                </span>
+                </button>
+            
+                <div class="collapse navbar-collapse navbar-light navbar-1 white" id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown dropdown-primary active">
+                        <form action="/logout?_method=DELETE" method="POST">
+                            <button type="submit" 
+                                class="nav-link btn btn-dark btn-rounded waves-effect mr-2" >Logout <span class="sr-only">(current)</span>
+                            </button>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section>
+                <form action="/ticket" method="POST"> 
+                    <div class="container py-5" style="margin-top:40px">
+                  
+                  
+                      <div class="row text-center">
+                        
+                        <!-- Pricing Table-->
+                        <div class="col-lg-8 mx-auto">
+                          <div class="bg-white p-5 rounded-lg shadow">
+                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Tickets</h1>
+                  
+                            <div class="custom-separator my-4 mx-auto bg-warning"></div>
+
+                             
+                    <div class="row">
+    
+                      <!--Grid column-->
+                      <div class="col-md-5 mb-4">
+    
+                        <img src="/images/month.png" class="img-fluid z-depth-1-half rounded" alt="month">
+    
+                      </div>
+                      <!--Grid column-->
+    
+                      <!--Grid column-->
+                      <div class="col-md-7 mb-4">
+    
+                        <h5 class="mt-5 h5">Add months to your timed ticket</h5>
+                        <div class="input-group number-spinner mb-2">
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" data-dir="dwn"><i class="fas fa-minus-square mx-3"></i></button>
+                          </span>
+                          <input type="number" min="0" class="form-control text-center" value="0" id="months" name="months" onchange="calculateAmount(this.value,  document.getElementById('tickets').value)">
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" data-dir="up"><i class="fas fa-plus-square mx-3"></i></button>
+                          </span>
+                        </div>
+    
+                      </div>
+                      <!--Grid column-->
+    
+                    
+    
+                    <hr class="mb-4">
+                    <h5 class="h5 text-left">Amount to pay: <span id="money">0</span>€</h5>
+                    <h5 class="h5 text-left">New account balance: <span id="newBal"><%=money%></span>€</h5>
+                    <hr class="mb-4">
+
+                    <input type="hidden" name="moneyInp" id="moneyInp" value="0">
+                    <input type="hidden" name="newBalInp" id="newBalInp" value="<%=money%>">
+                    
+
+                    <button type="submit" class="btn btn-dark btn-block p-2 shadow rounded-pill">Purchase</button>
+                    <% if(locals.message){ %>
+                      <div class="mt-2 alert alert-danger" role="alert"> <%=message.moneyWarning%> </div>
+                    <% } %>
+                  </div>
+    
+                                
+                            
+                          </div>
+                        </div>
+                        <!-- END -->
+                  
+                  
+                  
+                      </div>
+                    </div>
+                    </form>
+                  </section>
+            
+                        
+            
+        </header>
+        <!--/.Navbar -->
+        <!-- Main navigation -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       
+        <script>
+          $(document).on('click', '.number-spinner button', function () {    
+            var btn = $(this),oldValue = btn.closest('.number-spinner').find('input').val().trim(),newVal = 0;
+            if (btn.attr('data-dir') == 'up') {
+              newVal = parseInt(oldValue) + 1;
+            } else {
+              if (oldValue > 0) {
+                newVal = parseInt(oldValue) - 1;
+              } else {
+                newVal = 0;
+              }
+            } 
+          
+          btn.closest('.number-spinner').find('input').val(newVal);
+          calculateAmount(newVal, document.getElementById('tickets').value)
+        });
+
+        $(document).on('click', '.number-spinner2 button', function () {    
+            var btn = $(this),oldValue = btn.closest('.number-spinner2').find('input').val().trim(),newVal = 0;
+            if (btn.attr('data-dir') == 'up') {
+              newVal = parseInt(oldValue) + 1;
+            } else {
+              if (oldValue > 0) {
+                newVal = parseInt(oldValue) - 1;
+              } else {
+                newVal = 0;
+              }
+            } 
+          
+          btn.closest('.number-spinner2').find('input').val(newVal);
+          calculateAmount(document.getElementById('months').value, newVal)
+        });
+
+        function calculateAmount(months, tickets)
+        {
+          var discounted = '<%- JSON.stringify(discounted) %>';
+          var money = '<%- JSON.stringify(money) %>';
+
+          if(discounted=="true") 
+            newVal = (months*15 + tickets*0.6).toFixed(2);
+          else
+            newVal = (months*30 + tickets*1.4).toFixed(2); 
+          
+          document.getElementById('money').innerHTML = newVal;
+          document.getElementById('moneyInp').value = newVal;
+
+          var newBalance = (money - newVal).toFixed(2);
+          document.getElementById('newBal').innerHTML = newBalance; 
+          document.getElementById('newBalInp').value = newBalance; 
+
+        }
+
+      </script>
+      
+
+    </body>
+</html>

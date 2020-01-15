@@ -21,6 +21,10 @@ router.get('/billing', checkNotAuthenticated, (req, res) => {
   res.render('billing')
 }) 
 
+router.get('/money', checkNotAuthenticated, (req, res) => {
+  res.render('money')
+}) 
+
 router.get('/home', checkAuthenticated, async (req, res) => {
   user = await Users.findById(req.session.passport.user)
   if(user.timedTicket>=30)
