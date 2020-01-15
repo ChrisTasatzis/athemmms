@@ -17,13 +17,6 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register')
 }) 
 
-router.get('/billing', checkNotAuthenticated, (req, res) => {
-  res.render('billing')
-}) 
-
-router.get('/money', checkNotAuthenticated, (req, res) => {
-  res.render('money')
-}) 
 
 router.get('/home', checkAuthenticated, async (req, res) => {
   user = await Users.findById(req.session.passport.user)
@@ -61,14 +54,37 @@ router.post('/ticket', checkAuthenticated, async (req, res) => {
       res.redirect('home')
     })
   }
-
-
-  
+ 
 }) 
 
-router.get('/billing', checkAuthenticated, (req, res) => {
-  res.render('billing')
+router.get('/money', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  res.render('money', {money: user.money})
+}) 
+
+router.post('/money', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  money = req.body.moneyInp
+
+  newBal = req.body.newBalInp
+
+  if(newBal<0) {
+    req.flash('moneyWarning', "Amount of money can't be negative or 0");
+    res.locals.message = req.flash();
+    res.render('money', {money: user.money})
+  } else { 
+    newUser = await Users.updateOne({_id: req.session.passport.user}, {money: newBal}, function (err) {
+      if (err) 
+        return console.error(err) 
+      res.redirect('billing')
+    })
+  }
 })
+
+router.get('/billing', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  res.render('billing', {money: user.money})
+}) 
 
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {

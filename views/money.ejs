@@ -91,7 +91,7 @@ body {
                         <!-- Pricing Table-->
                         <div class="col-lg-8 mx-auto">
                           <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Tickets</h1>
+                            <h1 class="h6 text-uppercase font-weight-bold mb-4">Money</h1>
                   
                             <div class="custom-separator my-4 mx-auto bg-warning"></div>
 
@@ -101,7 +101,7 @@ body {
                       <!--Grid column-->
                       <div class="col-md-5 mb-4">
     
-                        <img src="/images/month.png" class="img-fluid z-depth-1-half rounded" alt="month">
+                        <img src="/images/money.png" class="img-fluid z-depth-1-half rounded" alt="month">
     
                       </div>
                       <!--Grid column-->
@@ -109,12 +109,12 @@ body {
                       <!--Grid column-->
                       <div class="col-md-7 mb-4">
     
-                        <h5 class="mt-5 h5">Add months to your timed ticket</h5>
+                        <h5 class="mt-5 h5">Add money to your e-wallet</h5>
                         <div class="input-group number-spinner mb-2">
                           <span class="input-group-btn">
                               <button type="button" class="btn btn-default" data-dir="dwn"><i class="fas fa-minus-square mx-3"></i></button>
                           </span>
-                          <input type="number" min="0" class="form-control text-center" value="0" id="months" name="months" onchange="calculateAmount(this.value,  document.getElementById('tickets').value)">
+                          <input type="number" min="0" class="form-control text-center" value="0" id="months" name="months" onchange="calculateAmount(this.value)">
                           <span class="input-group-btn">
                               <button type="button" class="btn btn-default" data-dir="up"><i class="fas fa-plus-square mx-3"></i></button>
                           </span>
@@ -126,8 +126,8 @@ body {
                     
     
                     <hr class="mb-4">
-                    <h5 class="h5 text-left">Amount to pay: <span id="money">0</span>€</h5>
-                    <h5 class="h5 text-left">New account balance: <span id="newBal"><%=money%></span>€</h5>
+                    <h5 class="h5 text-left">Amount to put into e-wallet: <span id="money">0</span>€</h5>
+                    <h5 class="h5 text-right"> &nbsp New account balance: <span id="newBal"><%=money%></span> </span>€</h5>
                     <hr class="mb-4">
 
                     <input type="hidden" name="moneyInp" id="moneyInp" value="0">
@@ -178,39 +178,19 @@ body {
             } 
           
           btn.closest('.number-spinner').find('input').val(newVal);
-          calculateAmount(newVal, document.getElementById('tickets').value)
+          calculateAmount(newVal, document.getElementById('money').value)
         });
 
-        $(document).on('click', '.number-spinner2 button', function () {    
-            var btn = $(this),oldValue = btn.closest('.number-spinner2').find('input').val().trim(),newVal = 0;
-            if (btn.attr('data-dir') == 'up') {
-              newVal = parseInt(oldValue) + 1;
-            } else {
-              if (oldValue > 0) {
-                newVal = parseInt(oldValue) - 1;
-              } else {
-                newVal = 0;
-              }
-            } 
-          
-          btn.closest('.number-spinner2').find('input').val(newVal);
-          calculateAmount(document.getElementById('months').value, newVal)
-        });
-
-        function calculateAmount(months, tickets)
+        function calculateAmount(addedmoney)
         {
-          var discounted = '<%- JSON.stringify(discounted) %>';
           var money = '<%- JSON.stringify(money) %>';
 
-          if(discounted=="true") 
-            newVal = (months*15 + tickets*0.6).toFixed(2);
-          else
-            newVal = (months*30 + tickets*1.4).toFixed(2); 
+          newVal = (addedmoney).toFixed(2);
           
           document.getElementById('money').innerHTML = newVal;
           document.getElementById('moneyInp').value = newVal;
-
-          var newBalance = (money - newVal).toFixed(2);
+          
+          var newBalance = (money + newVal).toFixed(2);
           document.getElementById('newBal').innerHTML = newBalance; 
           document.getElementById('newBalInp').value = newBalance; 
 
