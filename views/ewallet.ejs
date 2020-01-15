@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         
-        <title>Money</title>
+        <title>eWallet</title>
 
     </head>
     <body>
@@ -101,7 +101,7 @@ body {
                       <!--Grid column-->
                       <div class="col-md-5 mb-4">
     
-                        <img src="/images/money.png" class="img-fluid z-depth-1-half rounded" alt="month">
+                        <img src="/images/money.png" class="img-fluid z-depth-1-half rounded" alt="money">
     
                       </div>
                       <!--Grid column-->
@@ -114,7 +114,7 @@ body {
                           <span class="input-group-btn">
                               <button type="button" class="btn btn-default" data-dir="dwn"><i class="fas fa-minus-square mx-3"></i></button>
                           </span>
-                          <input type="number" min="0" class="form-control text-center" value="0" id="months" name="months" onchange="calculateAmount(this.value)">
+                          <input type="number" min="0" class="form-control text-center" value="0" id="month" name="month" onchange="addMoney(this.value)">
                           <span class="input-group-btn">
                               <button type="button" class="btn btn-default" data-dir="up"><i class="fas fa-plus-square mx-3"></i></button>
                           </span>
@@ -181,16 +181,15 @@ body {
           calculateAmount(newVal, document.getElementById('money').value)
         });
 
-        function calculateAmount(addedmoney)
+        function addMoney(addedmoney)
         {
           var money = '<%- JSON.stringify(money) %>';
 
-          newVal = (addedmoney).toFixed(2);
+          newVal = (addedmoney*1).toFixed(2);
           
           document.getElementById('money').innerHTML = newVal;
           document.getElementById('moneyInp').value = newVal;
-          
-          var newBalance = (money + newVal).toFixed(2);
+          var newBalance = (parseFloat(money)+parseFloat(newVal)).toFixed(2);
           document.getElementById('newBal').innerHTML = newBalance; 
           document.getElementById('newBalInp').value = newBalance; 
 

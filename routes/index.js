@@ -57,21 +57,21 @@ router.post('/ticket', checkAuthenticated, async (req, res) => {
  
 }) 
 
-router.get('/money', checkAuthenticated, async (req, res) => {
+router.get('/ewallet', checkAuthenticated, async (req, res) => {
   user = await Users.findById(req.session.passport.user)
-  res.render('money', {money: user.money})
+  res.render('ewallet', {money: user.money})
 }) 
 
-router.post('/money', checkAuthenticated, async (req, res) => {
+router.post('/ewallet', checkAuthenticated, async (req, res) => {
   user = await Users.findById(req.session.passport.user)
+  addedmoney = req.body.addedmoney
   money = req.body.moneyInp
-
   newBal = req.body.newBalInp
 
   if(newBal<0) {
-    req.flash('moneyWarning', "Amount of money can't be negative or 0");
+    req.flash('moneyWarning', "Amount of money can't be negative");
     res.locals.message = req.flash();
-    res.render('money', {money: user.money})
+    res.render('ewallet', {money: user.money})
   } else { 
     newUser = await Users.updateOne({_id: req.session.passport.user}, {money: newBal}, function (err) {
       if (err) 

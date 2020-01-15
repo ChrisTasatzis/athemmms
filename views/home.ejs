@@ -90,6 +90,7 @@ body {
                     .progress .progress-bar {
                     width: 100%;
                     height: 100%;
+                    margin: 0 auto;
                     background: none;
                     border-width: 6px;
                     border-style: solid;
@@ -185,7 +186,20 @@ body {
                                         <li class="mb-3">
                                             <i class="fa fa-check mr-2 text-primary"></i> Email: <%= user.email %></li>
                                         <li class="mb-3">
-                                            <i class="fa fa-check mr-2 text-primary"></i> Discounted: <%= user.discounted %></li>      
+                                          <i class="fa fa-check mr-2 text-primary"></i> Discounted: 
+                                          <p><script>
+                                            var d = '<%- JSON.stringify(user.discounted) %>'
+                                            var bool_value = d == "true" ? true : false
+                                            if (bool_value){
+                                              p = document.createElement("p");
+                                              p.innerHTML = " Yes";
+                                              document.body.appendChild(p);
+                                            } else {
+                                              p = document.createElement("p");
+                                              p.innerHTML = " No";
+                                              document.body.appendChild(p);
+                                              }           
+                                          </script></p></li>      
                                     </ul>
                             </div>
                           </div>
@@ -201,26 +215,24 @@ body {
                                     class="font-weight-bold" style="color:rgb(71, 71, 71)"><strong>Tickets</strong></a></h3>
                                 </div>
                             <div class="custom-separator my-4 mx-auto bg-primary"></div>
-                                <div class="container-fluid">
+                                <div class="container">
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-6 mb-4">
                                                     <div class="bg-white rounded-lg p-5 shadow">
                                                         <h2 class="h6 font-weight-bold text-center mb-4">Timed Ticket</h2>
-
-                                                        
-
                                                         <!-- Progress bar 1 -->
-                                                        <div class="progress mx-auto" data-value='<%= prog %>'>
-                                                        <span class="progress-left">
+                                                        <div class="progress mx-auto img-fluid" data-value='<%= prog %>'>
+                                                        <span class="progress-left ">
                                                                         <span class="progress-bar border-warning"></span>
                                                         </span>
                                                         <span class="progress-right">
                                                                         <span class="progress-bar border-warning"></span>
                                                         </span>
                                                         <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                                            <div class="h2 font-weight-bold"> <%= user.timedTicket %> <small> days</small></div>
+                                                            <div class="h2 font-weight-bold " style="font-size:3vw"> <%= user.timedTicket %> <small> days</small></div>
                                                         </div>
                                                         </div>
+                                                    
                                                         <!-- END -->
                                                     </div>
                                                 </div>
@@ -254,7 +266,7 @@ body {
                                             <h2 class="h6 font-weight-bold text-center mb-4">Amount of money</h2>
                                             <h1 class="display-3 font-weight-bold text-center mb-4"><%= user.money %> €</h1>   
                                     </div> 
-                            <a href="/money" class="btn btn-dark btn-block p-2 shadow rounded-pill">Add money to your e-wallet</a>
+                            <a href="/ewallet" class="btn btn-dark btn-block p-2 shadow rounded-pill">Add money to your e-wallet</a>
                           </div>
                         </div>
                         <!-- END -->
