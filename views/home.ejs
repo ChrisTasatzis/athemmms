@@ -185,21 +185,16 @@ body {
                                             <i class="fa fa-check mr-2 text-primary"></i> Last Name: <%= user.lastName %></li>
                                         <li class="mb-3">
                                             <i class="fa fa-check mr-2 text-primary"></i> Email: <%= user.email %></li>
-                                        <li class="mb-3">
-                                          <i class="fa fa-check mr-2 text-primary"></i> Discounted: 
-                                          <p><script>
-                                            var d = '<%- JSON.stringify(user.discounted) %>'
-                                            var bool_value = d == "true" ? true : false
-                                            if (bool_value){
-                                              p = document.createElement("p");
-                                              p.innerHTML = " Yes";
-                                              document.body.appendChild(p);
-                                            } else {
-                                              p = document.createElement("p");
-                                              p.innerHTML = " No";
-                                              document.body.appendChild(p);
-                                              }           
-                                          </script></p></li>      
+                                            <i class="fa fa-check mr-2 text-primary"></i> 
+                                            <a>Discounted: &nbsp<a id='dis'></a></p><script>
+                                              var d = '<%- JSON.stringify(user.discounted) %>'
+                                              var bool_value = d == "true" ? true : false
+                                              if (bool_value){
+                                                document.getElementById('dis').innerHTML = "Yes";
+                                              } else {
+                                                document.getElementById('dis').innerHTML = "No";
+                                                }           
+                                            </script></li>
                                     </ul>
                             </div>
                           </div>

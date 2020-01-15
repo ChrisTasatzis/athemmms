@@ -135,7 +135,7 @@
                             <!-- credit card info-->
                             <div id="nav-tab-card" class="tab-pane fade show active">
                               
-                              <form role="form">
+                              <form action="/billing" method="POST">
                                 <div class="form-group">
                                   <label for="username">Full name (on the card)</label>
                                   <input type="text" name="username" placeholder="Lana F Banana" required class="form-control">
@@ -160,6 +160,7 @@
                                       <div class="input-group">
                                         <input type="number" placeholder="MM" name="" class="form-control" required>
                                         <input type="number" placeholder="YY" name="" class="form-control" required>
+                                        
                                       </div>
                                     </div>
                                   </div>
@@ -175,21 +176,26 @@
                   
                   
                                 </div>
-                                <button type="button" class="subscribe btn btn-dark btn-block rounded-pill shadow-sm"> Confirm  </button>
+                                <input type="hidden" name="moneyhid" id="moneyhid" value="<%=money%>">
+                                <button type="submit" class="subscribe btn btn-dark btn-block rounded-pill shadow-sm"> Confirm  </button>
                               </form>
                             </div>
                             <!-- End -->
-                  
-                            <!-- Paypal info -->
-                            <div id="nav-tab-paypal" class="tab-pane fade">
-                              <p>Paypal is easiest way to pay online</p>
-                              <p>
-                                <button type="button" class="btn btn-dark rounded-pill"><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button>
-                              </p>
-                              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                              </p>
-                            </div>
-                            <!-- End -->
+                            
+                              <!-- Paypal info -->
+                              <div id="nav-tab-paypal" class="tab-pane fade">
+                                <p>Paypal is easiest way to pay online</p>
+                                <p>
+                                  <form action="/billing" method="POST">
+                                    <input type="hidden" name="moneyhid" id="moneyhid" value="<%=money%>">
+                                    <button type="submit" class="btn btn-dark rounded-pill"><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button>
+                                  </form>
+                                </p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                              </div>
+                              <!-- End -->
+                            
                   
                           </div>
                           <!-- End -->

@@ -66,26 +66,30 @@ router.post('/ewallet', checkAuthenticated, async (req, res) => {
   user = await Users.findById(req.session.passport.user)
   addedmoney = req.body.addedmoney
   money = req.body.moneyInp
-  newBal = req.body.newBalInp
 
-  if(newBal<0) {
-    req.flash('moneyWarning', "Amount of money can't be negative");
-    res.locals.message = req.flash();
-    res.render('ewallet', {money: user.money})
-  } else { 
-    newUser = await Users.updateOne({_id: req.session.passport.user}, {money: newBal}, function (err) {
-      if (err) 
-        return console.error(err) 
-      res.redirect('billing')
-    })
-  }
+  
+
+  res.render('billing', {money: money})
 })
 
-router.get('/billing', checkAuthenticated, async (req, res) => {
-  user = await Users.findById(req.session.passport.user)
-  res.render('billing', {money: user.money})
+router.get('/billing', checkAuthenticated, (req, res) => {
+  res.render('billing')
 }) 
 
+router.post('/billing', checkAuthenticated, async (req, res) => {
+  user = await Users.findById(req.session.passport.user)
+  
+  money = Number.parseFloat(req.body.moneyhid)
+
+  newBal = user.money + money
+
+  newUser = await Users.updateOne({_id: req.session.passport.user}, {money: newBal}, function (err) {
+    if (err) 
+      return console.error(err) 
+
+    res.redirect('home')
+  })
+})
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/home',
